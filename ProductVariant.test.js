@@ -1,6 +1,6 @@
-let Store = require('./Store')
-let Product = require('./Product')
-let ProductVariant = require('./ProductVariant')
+const Store = require('./Store')
+const Product = require('./Product')
+const ProductVariant = require('./ProductVariant')
 
 let productVariant;
 
