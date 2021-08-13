@@ -22,9 +22,13 @@ class ProductVariant {
         return this.color
     }
 
-    discountStock(stock) {
+    addStock(stock) {
+        this.stock += stock
+    }
+
+    substractStock(stock) {
         if (stock > this.stock) {
-            throw "Insufficient stock"
+            throw 'Insufficient stock'
         }
 
         this.stock -= stock
