@@ -1,3 +1,5 @@
+const Store = require('./Store')
+
 class Product {
     constructor(store, name, price) {
         this.store = store
