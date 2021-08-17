@@ -24,7 +24,7 @@ class SaleStatus {
 
 // la idea era que las siguientes clases estén declaradas cada una en un archivo, pero node no acepta referencias circulares
 
-class SaleStatusReceived extends SaleStatus {
+class Received extends SaleStatus {
     constructor(sale) {
         super(sale)
     }
@@ -32,15 +32,15 @@ class SaleStatusReceived extends SaleStatus {
     accept() {
         this.sale.discountStocks()
 
-        return new SaleStatusAccepted(this.sale)
+        return new Accepted(this.sale)
     }
 
     cancel() {
-        return new SaleStatusCanceled(this.sale)
+        return new Canceled(this.sale)
     }
 }
 
-class SaleStatusAccepted extends SaleStatus {
+class Accepted extends SaleStatus {
     constructor(sale) {
         super(sale)
     }
@@ -48,21 +48,21 @@ class SaleStatusAccepted extends SaleStatus {
     unaccept() {
         this.sale.restoreStocks()
 
-        return new SaleStatusReceived(this.sale)
+        return new Received(this.sale)
     }
 
     deliver() {
-        return new SaleStatusDelivered(this.sale)
+        return new Delivered(this.sale)
     }
 }
 
-class SaleStatusCanceled extends SaleStatus {
+class Canceled extends SaleStatus {
     constructor(sale) {
         super(sale)
     }
 }
 
-class SaleStatusDelivered extends SaleStatus {
+class Delivered extends SaleStatus {
     constructor(sale) {
         super(sale)
     }
@@ -70,8 +70,8 @@ class SaleStatusDelivered extends SaleStatus {
 
 module.exports = {
     SaleStatus: SaleStatus,
-    SaleStatusReceived: SaleStatusReceived,
-    SaleStatusAccepted: SaleStatusAccepted,
-    SaleStatusCanceled: SaleStatusCanceled,
-    SaleStatusDelivered: SaleStatusDelivered,
+    Received: Received,
+    Accepted: Accepted,
+    Canceled: Canceled,
+    Delivered: Delivered,
 }

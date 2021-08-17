@@ -8,7 +8,7 @@ class Sale {
         this.client = client
         this.date = new Date()
         this.saleDetails = []
-        this.status = new SaleStatus.SaleStatusReceived(this)
+        this.status = new SaleStatus.Received(this)
         this.delivered = false
         this.shipment = null
     }
@@ -22,7 +22,7 @@ class Sale {
     }
 
     addProductVariant(productVariant, quantity) {
-        if (!this.status instanceof SaleStatus.SaleStatusReceived) {
+        if (!this.status instanceof SaleStatus.Received) {
             throw 'Unable to add product variant'
         }
 

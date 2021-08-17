@@ -67,24 +67,24 @@ test('Error accepting sale without shipment', () => {
 test('Error accepting/unaccepting empty sale', () => {
     sale.setShipment(testDefaultShipment)
     expect(() => { sale.accept() }).toThrow('Sale has no products')
-    sale.status = new SaleStatus.SaleStatusAccepted(sale)
+    sale.status = new SaleStatus.Accepted(sale)
     expect(() => { sale.unaccept() }).toThrow('Sale has no products')
 })
 
 test('Accept and unaccept sale', () => {
     sale.addProductVariant(productVariant1, 1)
     sale.setShipment(testDefaultShipment)
-    expect(sale.status).toBeInstanceOf(SaleStatus.SaleStatusReceived)
+    expect(sale.status).toBeInstanceOf(SaleStatus.Received)
     sale.accept()
-    expect(sale.status).toBeInstanceOf(SaleStatus.SaleStatusAccepted)
+    expect(sale.status).toBeInstanceOf(SaleStatus.Accepted)
     sale.unaccept()
-    expect(sale.status).toBeInstanceOf(SaleStatus.SaleStatusReceived)
+    expect(sale.status).toBeInstanceOf(SaleStatus.Received)
 })
 
 test('Cancel Sale', () => {
     sale.addProductVariant(productVariant1, 1)
     sale.cancel()
-    expect(sale.status).toBeInstanceOf(SaleStatus.SaleStatusCanceled)
+    expect(sale.status).toBeInstanceOf(SaleStatus.Canceled)
 })
 
 test('Deliver Sale', () => {
@@ -92,7 +92,7 @@ test('Deliver Sale', () => {
     sale.setShipment(testDefaultShipment)
     sale.accept()
     sale.deliver()
-    expect(sale.status).toBeInstanceOf(SaleStatus.SaleStatusDelivered)
+    expect(sale.status).toBeInstanceOf(SaleStatus.Delivered)
 })
 
 test('Error on not allowed statuses for received sale', () => {
