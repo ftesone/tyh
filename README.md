@@ -1,2 +1,9 @@
-# tyh
-Trabajo práctico de cursada de Técnicas y Herramientas 2021
+# Técnicas y Herramientas
+
+Trabajo práctico de cursada 2021
+
+## Diagrama de clases UML
+
+![UML class diagram](tyh.png)
+
+Archivo fuente (diagrams.net): [tyh.drawio](tyh.drawio)
