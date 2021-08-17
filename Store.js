@@ -1,6 +1,7 @@
 class Store {
-    constructor(name) {
+    constructor(name, subscription) {
         this.name = name
+        this.subscription = subscription
         this.sales = []
     }
 
@@ -16,6 +17,10 @@ class Store {
 
     getSales() {
         return this.sales
+    }
+
+    getSubscriptionPayment() {
+        return this.subscription.getPayment(this.sales.filter(s => s.isDelivered()))
     }
 }
 

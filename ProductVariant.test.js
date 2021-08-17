@@ -5,7 +5,7 @@ const ProductVariant = require('./ProductVariant')
 let productVariant;
 
 beforeEach(() => {
-    let product = new Product(new Store('Store 1'), 'Product 1', 100)
+    let product = new Product('Product 1', 100)
     productVariant = new ProductVariant(product, 3, 'M', 'Black')
 })
 

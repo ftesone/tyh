@@ -1,6 +1,5 @@
 const Sale = require('./Sale')
 const Client = require('./Client')
-const Store = require('./Store')
 const Product = require('./Product')
 const ProductVariant = require('./ProductVariant')
 const SaleStatus = require('./SaleStatus')
@@ -17,10 +16,9 @@ const PRODUCT_VARIANT_1_INITIAL_STOCK = 10, PRODUCT_VARIANT_2_INITIAL_STOCK = 20
 let sale, product1, product2, productVariant1, productVariant2, testDefaultShipment
 
 beforeEach(() => {
-    let store = new Store('Test Store')
     sale = new Sale(new Client('Test Client'))
-    product1 = new Product(store, 'Product 1', 3000)
-    product2 = new Product(store, 'Product 2', 2500)
+    product1 = new Product('Product 1', 3000)
+    product2 = new Product('Product 2', 2500)
     productVariant1 = new ProductVariant(product1, PRODUCT_VARIANT_1_INITIAL_STOCK, 'M', 'black')
     productVariant2 = new ProductVariant(product2, PRODUCT_VARIANT_2_INITIAL_STOCK, 'L', 'white')
     testDefaultShipment = new TraditionalDelivery(sale)

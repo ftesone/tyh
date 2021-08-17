@@ -9,6 +9,7 @@ class Sale {
         this.date = new Date()
         this.saleDetails = []
         this.status = new SaleStatus.SaleStatusReceived(this)
+        this.delivered = false
         this.shipment = null
     }
 
@@ -75,6 +76,12 @@ class Sale {
 
     deliver() {
         this.status = this.status.deliver()
+
+        this.delivered = true
+    }
+
+    isDelivered() {
+        return this.delivered
     }
 
     setShipment(shipment) {
